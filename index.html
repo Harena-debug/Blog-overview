@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta http-equiv="X-UA-Compatible" content="id=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,27 +14,33 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-    :root{
-      --weight : 800;
-      --radius : 15px;
-      --main-color : hsl(47 , 88% , 63%);
+    
+    :root {
+      --weight: 800;
+      --radius: 15px;
+      --main-color: hsl(47, 88%, 63%);
     }
-    * , *::before , *::after{
+    
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    body{
+    
+    body {
       background-color: var(--main-color);
-      font-family: "Figtree" , sans-serif;
+      font-family: "Figtree", sans-serif;
     }
-    main{
+    
+    main {
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 1.5rem;
     }
-    article{
+    
+    article {
       background-color: hsl(0, 0%, 100%);
       max-width: 21.875rem;
       padding: 20px;
@@ -42,15 +48,42 @@
       line-height: 30px;
       box-shadow: 8px 8px 0px #000;
       border: 2px solid #000;
-      transition: transform 500ms;
+      transition: transform 500ms, box-shadow 500ms;
     }
-    .logo{
+    
+    /* 👇 NOUVEAU : Style pour le lien */
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    /* 👇 NOUVEAU : Focus visible pour accessibilité clavier */
+    .card-link:focus {
+      outline: 3px solid var(--main-color);
+      outline-offset: 4px;
+      border-radius: var(--radius);
+    }
+    
+    /* 👇 MODIFIÉ : Hover maintenant sur le lien */
+    article:has(.card-link:hover) {
+      transform: scale(1.05);
+      box-shadow: 12px 12px 0px #000;
+    }
+    
+    /* 👇 NOUVEAU : Titre change de couleur au hover */
+    .card-link:hover h2 {
+      color: var(--main-color);
+    }
+    
+    .logo {
       display: block;
       margin: auto;
       border-radius: var(--radius);
       max-width: 100%;
     }
-    .learning{
+    
+    .learning {
       background-color: var(--main-color);
       display: inline-block;
       padding: 4px 12px;
@@ -59,33 +92,38 @@
       margin-top: 15px;
       border-radius: 5px;
     }
-    h2{
+    
+    h2 {
       font-weight: var(--weight);
+      transition: color 300ms;  /* 👈 NOUVEAU : Animation douce */
     }
-    .description{
+    
+    .description {
       font-size: 16px;
       color: hsl(0, 0%, 42%);
     }
-    figure{
+    
+    figure {
       display: flex;
       align-items: center;
       margin-top: 16px;
     }
-    figcaption{
+    
+    figcaption {
       margin-left: 15px;
       font-weight: 950;
     }
-    .avatar{
+    
+    .avatar {
       width: 45px;
     }
-    .date{
+    
+    .date {
       font-weight: 500;
     }
-    article:hover{
-      transform: scale(1.1 , 1.1);
-    }
-    @media(max-width : 375px){
-      article{
+    
+    @media(max-width: 375px) {
+      article {
         width: 21rem;
       }
     }
@@ -95,21 +133,24 @@
 
   <main>
     <article>
-      <img src="assets/images/illustration-article.svg" alt="Logo du blog" class="logo">
-      <p class="learning">Learning</p>
-      <p>Published 21 Dec 2023</p>
-      <h2>HTML & CSS foundations</h2>
-      <p class="description">These languages are the backbone of every  website , defining structure , content , presentation</p>
-      <figure>
-        <img src="assets/images/image-avatar.webp" alt="Avatar de l'auteur de l'article" class="avatar">
-        <figcaption>Greg Hooper</figcaption>
-      </figure>
+      <!-- 👇 NOUVEAU : Lien qui enveloppe tout le contenu -->
+      <a href="https://www.frontendmentor.io/challenges" class="card-link">
+        <img src="assets/images/illustration-article.svg" alt="Logo du blog" class="logo">
+        <p class="learning">Learning</p>
+        <p class="date">Published 21 Dec 2023</p>
+        <h2>HTML & CSS foundations</h2>
+        <p class="description">These languages are the backbone of every website, defining structure, content, presentation</p>
+        <figure>
+          <img src="assets/images/image-avatar.webp" alt="Avatar de l'auteur de l'article" class="avatar">
+          <figcaption>Greg Hooper</figcaption>
+        </figure>
+      </a>
     </article>
   </main>
   
-  <div class="attribution">
+  <footer>
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Harena</a>.
-  </div>
+    Coded by <a href="https://github.com/Harena-debug">Harena</a>.
+  </footer>
 </body>
 </html>
